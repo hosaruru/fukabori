@@ -3,6 +3,7 @@ class FukaboriContentsController < ApplicationController
   end
 
   def new
+     @fukabori_content = FukaboriContents.new
   end
 
   def create

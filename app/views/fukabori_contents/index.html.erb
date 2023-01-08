@@ -1,6 +1,8 @@
-<button class="ui button"><%= link_to "やってみよー", new_point_path, class: "nav-link bi bi-chat-left-dots-fill" %></button>
-
-
+ <h4>画像</h4>
+ <%= form_with model: @fukabori_content, method: :post do |f| %>
+  <%= f.file_field :image, accept: "image/*" %>
+  <%= f.submit "やってみよー！" ,class: "ui button" %>
+<% end %>
 <h1>aa</h1>
 <div class="ui breadcrumb">
   <a class="section" href="/">SE学院</a>
