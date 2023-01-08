@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_08_094151) do
+ActiveRecord::Schema.define(version: 2023_01_08_161223) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 2023_01_08_094151) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "contents", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "content", null: false
+    t.string "images"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "fukabori_contents", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "fukabori_content", null: false
@@ -57,8 +65,25 @@ ActiveRecord::Schema.define(version: 2023_01_08_094151) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "images"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "base_pic"
+  end
+
   create_table "points", force: :cascade do |t|
     t.string "question"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "texts", force: :cascade do |t|
+    t.text "text", null: false
+    t.integer "user_id", null: false
+    t.integer "content_id", null: false
+    t.string "images"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

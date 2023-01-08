@@ -1,0 +1,2 @@
+class CarryContent < ApplicationRecord
+end

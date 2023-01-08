@@ -1,0 +1,42 @@
+pikutya-
+<div class="alret">
+  <%= flash[:alret] %>
+</div>
+<div class="container mx-2 mx-sm-auto shadow-lg rounded px-5 py-5 my-5 post_back">
+  <div class='mb-5', id="title">
+  		<p>
+      <span>新</span>
+      <span>規</span>
+      <span>登</span>
+  		<span>録</span>
+  	</p>
+  </div>
+  <div class='answer_box'>
+  <%= form_with model: @picture, url:pictures_path do |f| %>
+      
+
+  <% end %>
+  </div>
+</div>
+
+
+<div class="col-md-8 offset-md-1">
+<table class="table">
+<tbody>
+<tr>
+
+<td>
+  <%= form_with model: @content_pic, url: pictures_path do |f| %>
+  <%= f.file_field :image, accept: "image/*" %>
+  <%= f.hidden_field :base_pic_id, :value => @base_pic.id %>
+      <%= f.submit '分析しよー', class: 'ui button' %>
+<% end %>
+
+</td>
+<!-- form_with部分 -->
+
+
+</tr>
+</tbody>
+</table>
+</div>
