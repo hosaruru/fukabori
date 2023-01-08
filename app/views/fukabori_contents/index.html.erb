@@ -1,1 +1,22 @@
-<h1><%= link_to "やってみよー", points_path, class: "nav-link bi bi-chat-left-dots-fill" %></h1>
+<button class="ui button"><%= link_to "やってみよー", new_point_path, class: "nav-link bi bi-chat-left-dots-fill" %></button>
+
+
+<h1>aa</h1>
+<div class="ui breadcrumb">
+  <a class="section" href="/">SE学院</a>
+  <div class="divider"> / </div>
+  <a class="section" href="/css/">CSS</a>
+  <div class="divider"> / </div>
+  <div class="active section">Semantic UI</a>
+</div>
+<div class="ui dropdown">
+  <div class="text">File</div>
+  <i class="dropdown icon"></i>
+  <div class="menu">
+    <div class="item">New</div>
+    <div class="item">Save</div>
+  </div>
+</div>
+<script>
+  $('.ui.dropdown').dropdown();
+</script>
