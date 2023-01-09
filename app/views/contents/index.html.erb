@@ -1,0 +1,20 @@
+
+これでよいかし？
+<div class="col-md-8 offset-md-1">
+
+<table>
+          <% if picture.image.image.attached? %>
+          <small>※画像をクリックすると拡大できます</small>
+          <figure class="hover-img">
+            <%= link_to @carry_content.image, "data-lightbox": @carry_content.image do %>
+              <%= image_tag @carry_content.image ,class:"img" %>
+            <% end %>
+            <figcaption>
+              <p>画像をクリックして拡大</p>
+            </figcaption>
+          </figure>
+          <% end %>
+  </table>
+</div>
+<%= link_to "注文手続きへ", new_text_path, class: "btn btn-primary mt-3" %>
+<%= link_to "買い物を続ける", new_picture_path, class: "btn btn-primary mt-5" %>

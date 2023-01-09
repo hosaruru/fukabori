@@ -9,7 +9,6 @@
 <td>
   <%= form_with model: @carry_content, url: carry_contents_path do |f| %>
   <%= f.file_field :image, accept: "image/*" %>
-  <%= f.hidden_field :picture_id, :value => @base_pic.id %>
       <%= f.submit '分析しよー', class: 'ui button' %>
 <% end %>
 </td>

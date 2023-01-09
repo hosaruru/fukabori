@@ -1,5 +1,6 @@
 class ContentsController < ApplicationController
   def index
+    @carry_content = current_user.picture
   end
 
   def new
@@ -34,12 +35,15 @@ class ContentsController < ApplicationController
   
   private
   
+  def carry_content_params
+    params.require(:carry_content).permit(:picture_id, :images)
+  end
+  
   def content_params
     params.require(:content).permit(:title, :description, 
       pictures_attributes: [:text, :description,
         options_attributes: [:text]
       ]
     )
-  
-end
+  end
 end

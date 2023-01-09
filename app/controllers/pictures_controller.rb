@@ -4,21 +4,16 @@ class PicturesController < ApplicationController
 
   def new
     @carry_content = CarryContent.new
-    @base_pic = Picture.new
+    
   end
 
   def create
-    @post = Post.new(post_params)
-    tag_list = params[:post][:tag_name].split(/[[:blank:]]/)
-    @post.image.attach(params[:post][:image])
-    @post.user_id = current_user.id
-    if @post.save
-      @post.save_posts(tag_list)
-      redirect_to post_path(@post.id)
-      flash[:notice] = ""
+    @picture = Picture.new(picture_params)
+    if @picture.save
+      redirect_to contents_path
     else
-      flash.now[:alret] = "*は必須です。"
-      render:new
+      flash.now[:alret] = "ソフト名を入力してください"
+      render :new
     end
   end
   
