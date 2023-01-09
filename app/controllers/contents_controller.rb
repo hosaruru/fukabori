@@ -29,6 +29,9 @@ class ContentsController < ApplicationController
   def destroy
   end
   
+  def confirm
+  end
+  
   private
   
   def content_params
@@ -38,4 +41,5 @@ class ContentsController < ApplicationController
       ]
     )
   
+end
 end

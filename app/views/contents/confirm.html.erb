@@ -1,0 +1,6 @@
+かくにんがめん
+<div class="col-md-8 offset-md-1">
+  <%= form_with model: @order , url: contents_complete_path do |f| %>
+   <%= f.hidden_field :text, :value => @text %>
+    <%= f.submit '購入確定' %>
+<% end %>

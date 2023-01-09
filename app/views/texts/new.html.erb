@@ -1,2 +1,19 @@
-<h1>Texts#new</h1>
-<p>Find me in app/views/texts/new.html.erb</p>
+<h1>3ページ目。ラスト。テキスト投稿</h1>
+<div class="alret">
+  <%= flash[:alret] %>
+</div>
+
+ <% @carry_content.each do |carry_content| %>
+    <%= image_tag carry_content.picture.image, size: "100x100" %>
+ <% end %>
+ 
+
+
+<%= form_with model: @carry_content, url: new_text_path do |f| %>
+<%= f.text_area :text, placeholder: "Gペン" %>
+<%= f.hidden_field :text_id, :value => @text.id %>
+<%= f.submit '分析しよー', class: 'ui button' %>
+
+ <% end %>
+
+</div>

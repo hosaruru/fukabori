@@ -3,13 +3,23 @@ class PicturesController < ApplicationController
   end
 
   def new
-    @picture = Picture.new
+    @carry_content = CarryContent.new
+    @base_pic = Picture.new
   end
 
   def create
-    @content_pic = Content.new
-    @item = Item.find(params[:id])  
-    @genre = Genre.all
+    @post = Post.new(post_params)
+    tag_list = params[:post][:tag_name].split(/[[:blank:]]/)
+    @post.image.attach(params[:post][:image])
+    @post.user_id = current_user.id
+    if @post.save
+      @post.save_posts(tag_list)
+      redirect_to post_path(@post.id)
+      flash[:notice] = ""
+    else
+      flash.now[:alret] = "*は必須です。"
+      render:new
+    end
   end
   
   private
